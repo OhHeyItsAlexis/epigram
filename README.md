@@ -1,2 +1,31 @@
-# epigram
-A Java-based epigram application
+# Epigram
+A Java-based epigram application by Alexis Pratchett. Just a fun little coding exercise.
+## Roadmap
+### Backend
+- [ ] Find appropriate web framework
+- [ ] Set up web framework 
+- [ ] Set up environmental variables (DB access)
+- [ ] Set up Docker container to run project in personal environment
+### Database
+- [ ] Create database schema
+- [ ] Accounts (with roles)
+- [ ] Epigrams
+### API
+- [ ] GetRandomEpigram
+- [ ] ListEpigrams
+- [ ] SubmitEpigram
+- [ ] ApproveEpigram
+- [ ] DeleteEpigram
+- [ ] CreateUser
+- [ ] ApproveUser
+### UI
+- [ ] Pull random epigram every X minutes
+- [ ] Pause/play for random functionality
+- [ ] Shake device to generate new epigram (on mobile)
+- [ ] Semi-mystical layout
+- [ ] Epigram display page
+- [ ] Login page
+- [ ] Create user page
+- [ ] Approve user page (admin)
+- [ ] List epigram page
+- [ ] Approve epigram page (admin)
