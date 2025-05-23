@@ -2,7 +2,8 @@
 A Java-based epigram application by Alexis Pratchett. Just a fun little coding exercise.
 ## Roadmap
 ### Backend
-- [ ] Find appropriate web framework
+- [X] Find appropriate web framework
+  - Most of my familiarity is with ASP.Net MVC, with very little standalone Java experience outside of private frameworks used in certain large companies. I opted for Spring Boot as Spring still appears to be popular and the closest equivalent to ASP.Net, while Spring Boot should cut out some of the boilerplate. 
 - [ ] Set up web framework 
 - [ ] Set up environmental variables (DB access)
 - [ ] Set up Docker container to run project in personal environment
