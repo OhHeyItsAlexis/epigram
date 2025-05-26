@@ -5,21 +5,29 @@ A Java-based epigram application by Alexis Pratchett. Just a fun little coding e
 - [X] Find appropriate web framework
   - Most of my familiarity is with ASP.Net MVC, with very little standalone Java experience outside of private frameworks used in certain large companies. I opted for Spring Boot as Spring still appears to be popular and the closest equivalent to ASP.Net, while Spring Boot should cut out some of the boilerplate. 
 - [X] Set up web framework 
-- [ ] Set up environmental variables (DB access)
-- [ ] Set up Docker container to run project in personal environment
+- [X] Set up environmental variables (DB access)
+- [X] Set up Docker container to run project in personal environment
+  - Pretty happy with this set up. The compose spins up a DB wired up to sample app, with local persistence. Makes it pretty easy to get started with development, at least if you're using IntelliJ.
 ### Database
-- [ ] Create database schema
+- [X] Create database schema
+  - Since I opted for JPA it's mostly handling DB schema on its own. If this weren't a simple app I would not want to rely on it, as it could get super cumbersome once you get out of the box.
 - [ ] Accounts (with roles)
-- [ ] Epigrams
+- [X] Epigrams
+- [ ] Epigram status (approved, unapproved)
+  - Set up with [rel approval or deletion links] (https://spring.io/guides/tutorials/rest)
 ### API
-- [ ] GetRandomEpigram
-- [ ] ListEpigrams
-- [ ] SubmitEpigram
+- [X] GetRandomEpigram
+  - The exact kind of scenario where JPA starts getting annoying, but it works
+- [X] ListEpigrams
+- [X] SubmitEpigram
 - [ ] ApproveEpigram
-- [ ] DeleteEpigram
+- [X] DeleteEpigram
 - [ ] CreateUser
 - [ ] ApproveUser
 ### UI
+- [ ] Set up Angular
+- [ ] Sign component
+- [ ] Letter component
 - [ ] Pull random epigram every X minutes
 - [ ] Pause/play for random functionality
 - [ ] Shake device to generate new epigram (on mobile)
