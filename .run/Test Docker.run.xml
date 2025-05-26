@@ -9,6 +9,7 @@
     </deployment>
     <method v="2">
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="Package with Maven" run_configuration_type="MavenRunConfiguration" />
+      <option name="LaunchBrowser.Before.Run" url="http://localhost:8080" />
     </method>
   </configuration>
 </component>

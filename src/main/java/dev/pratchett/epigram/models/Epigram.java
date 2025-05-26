@@ -22,7 +22,7 @@ public class Epigram {
     @Column(name = "content", nullable = false)
     private String content;
 
-    public String GetContent() {
+    public String getContent() {
         return content;
     }
 
