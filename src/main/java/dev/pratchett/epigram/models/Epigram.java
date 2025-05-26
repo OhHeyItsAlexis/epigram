@@ -6,20 +6,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
-import jakarta.validation.constraints.Size;
-import jakarta.persistence.NamedQuery;
+//import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "epigrams")
-@NamedQuery(name = "EpigramModel.listIds",
-        query = "select id from EpigramModel")
-public class EpigramModel {
+public class Epigram {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
-    @Size(min = 3, max = 75)
+    public Integer getId() { return id; }
+
+    //@Size(min = 3, max = 75)
     @Column(name = "content", nullable = false)
     private String content;
 
@@ -28,4 +27,7 @@ public class EpigramModel {
     }
 
     public void setContent(String content) { this.content = content; }
+
+    @Override
+    public String toString() { return String.format("Epigram #%s: %s", id, content); }
 }

@@ -1,11 +1,12 @@
 package dev.pratchett.epigram.repositories;
 
-import java.util.List;
-import org.springframework.data.repository.CrudRepository;
-import dev.pratchett.epigram.models.EpigramModel;
 
-public interface EpigramRepository extends CrudRepository<EpigramModel, Integer>{
-    List<EpigramModel> listIds();
+import jakarta.transaction.Transactional;
+import dev.pratchett.epigram.models.Epigram;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-    EpigramModel findById(int id);
+@Transactional
+@Repository
+public interface EpigramRepository extends JpaRepository<Epigram, Integer> {
 }
