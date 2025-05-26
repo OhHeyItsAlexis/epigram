@@ -2,56 +2,84 @@ package dev.pratchett.epigram.controllers;
 
 import dev.pratchett.epigram.exceptions.EpigramNotFoundException;
 import dev.pratchett.epigram.models.Epigram;
+import dev.pratchett.epigram.models.assemblers.EpigramModelAssembler;
 import dev.pratchett.epigram.repositories.EpigramRepository;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.IanaLinkRelations;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 public class EpigramController {
     private final EpigramRepository repository;
+    private final EpigramModelAssembler assembler;
 
-    EpigramController(EpigramRepository repository) {
+    EpigramController(EpigramRepository repository, EpigramModelAssembler assembler) {
         this.repository = repository;
+        this.assembler = assembler;
     }
 
-    // Aggregate root
-    // tag::get-aggregate-root[]
     @GetMapping("/epigrams")
-    List<Epigram> all() {
-        return repository.findAll();
+    public CollectionModel<EntityModel<Epigram>> all() {
+        List<EntityModel<Epigram>> epigrams =  repository.findAll().stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toList());
+
+        return CollectionModel.of(epigrams, linkTo(methodOn(EpigramController.class).all()).withSelfRel());
     }
-    // end::get-aggregate-root[]
 
     @GetMapping("/epigrams/random")
-    Epigram random() {
-        return repository.getRandomEpigram();
+    EntityModel<Epigram> random() {
+        Epigram epigram = repository.getRandomEpigram();
+
+        return assembler.toModel(epigram);
     }
 
     @PostMapping("/epigrams")
-    Epigram newEpigram(@RequestBody Epigram newEpigram) {
-        return repository.save(newEpigram);
+    ResponseEntity<EntityModel<Epigram>> newEpigram(@RequestBody Epigram newEpigram) {
+        Epigram epigram = repository.save(newEpigram);
+        EntityModel<Epigram> entityModel = assembler.toModel(epigram);
+
+        return ResponseEntity
+                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()) //
+                .body(entityModel);
     }
 
     // Single item
     @GetMapping("/epigrams/{id}")
-    Epigram one(@PathVariable Integer id) throws EpigramNotFoundException {
-        return repository.findById(id)
+    public EntityModel<Epigram> one(@PathVariable Integer id) {
+        Epigram epigram = repository.findById(id)
                 .orElseThrow(() -> new EpigramNotFoundException(id));
+
+        return assembler.toModel(epigram);
     }
 
     @PutMapping("/epigrams/{id}")
-    Epigram replaceEpigram(@RequestBody Epigram newEpigram, @PathVariable Integer id) {
-        return repository.findById(id)
+    ResponseEntity<EntityModel<Epigram>> replaceEpigram(@RequestBody Epigram newEpigram, @PathVariable Integer id) {
+        Epigram epigram = repository.findById(id)
                 .map(Epigram -> {
                     Epigram.setContent(newEpigram.getContent());
                     return repository.save(Epigram);
                 })
                 .orElseGet(() -> repository.save(newEpigram));
+
+        EntityModel<Epigram> entityModel = assembler.toModel(epigram);
+
+        return ResponseEntity
+                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+                .body(entityModel);
     }
 
     @DeleteMapping("/epigrams/{id}")
-    void deleteEpigram(@PathVariable Integer id) {
+    ResponseEntity<?> deleteEpigram(@PathVariable Integer id) {
         repository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }

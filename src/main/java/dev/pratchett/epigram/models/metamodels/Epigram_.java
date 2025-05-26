@@ -1,5 +1,6 @@
-package dev.pratchett.epigram.models;
+package dev.pratchett.epigram.models.metamodels;
 
+import dev.pratchett.epigram.models.Epigram;
 import jakarta.persistence.metamodel.SingularAttribute;
 import jakarta.persistence.metamodel.StaticMetamodel;
 
