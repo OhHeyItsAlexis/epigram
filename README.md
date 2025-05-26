@@ -13,6 +13,7 @@ A Java-based epigram application by Alexis Pratchett. Just a fun little coding e
   - Since I opted for JPA it's mostly handling DB schema on its own. If this weren't a simple app I would not want to rely on it, as it could get super cumbersome once you get out of the box.
 - [ ] Accounts (with roles)
 - [X] Epigrams
+  - Including seeding of database when empty.
 - [ ] Epigram status (approved, unapproved)
   - Set up with [rel approval or deletion links] (https://spring.io/guides/tutorials/rest)
 ### API
@@ -25,7 +26,8 @@ A Java-based epigram application by Alexis Pratchett. Just a fun little coding e
 - [ ] CreateUser
 - [ ] ApproveUser
 ### UI
-- [ ] Set up Angular
+- [X] Set up Angular
+  - Also set up with Docker. This is a bit slower that I'd like, as there doesn't seem to be a container with Angular already installed, but it does have live reloading so you do only need to run it once and can then work on the fly. 
 - [ ] Sign component
 - [ ] Letter component
 - [ ] Pull random epigram every X minutes
