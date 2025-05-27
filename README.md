@@ -27,9 +27,12 @@ A Java-based epigram application by Alexis Pratchett. Just a fun little coding e
 - [X] DeleteEpigram
 - [ ] CreateUser
 - [ ] ApproveUser
+- [ ] Fix up requiring CORS annotations in every endpoint
 ### UI
 - [X] Set up Angular
   - Also set up with Docker. This is a bit slower that I'd like, as there doesn't seem to be a container with Angular already installed, but it does have live reloading so you do only need to run it once and can then work on the fly. 
+- [ ] Epigram service
+- [ ] Remove hard-coded URLs
 - [ ] Sign component
 - [ ] Letter component
 - [ ] Pull random epigram every X minutes

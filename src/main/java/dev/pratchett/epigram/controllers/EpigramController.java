@@ -26,6 +26,7 @@ public class EpigramController {
         this.assembler = assembler;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/epigrams")
     public CollectionModel<EntityModel<Epigram>> all() {
         List<EntityModel<Epigram>> epigrams =  repository.findAll().stream()
@@ -35,6 +36,7 @@ public class EpigramController {
         return CollectionModel.of(epigrams, linkTo(methodOn(EpigramController.class).all()).withSelfRel());
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/epigrams/random")
     EntityModel<Epigram> random() {
         Epigram epigram = repository.getRandomEpigram();
@@ -42,6 +44,7 @@ public class EpigramController {
         return assembler.toModel(epigram);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/epigrams")
     ResponseEntity<EntityModel<Epigram>> newEpigram(@RequestBody Epigram newEpigram) {
         Epigram epigram = repository.save(newEpigram);
@@ -52,7 +55,7 @@ public class EpigramController {
                 .body(entityModel);
     }
 
-    // Single item
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/epigrams/{id}")
     public EntityModel<Epigram> one(@PathVariable Integer id) {
         Epigram epigram = repository.findById(id)
@@ -61,6 +64,7 @@ public class EpigramController {
         return assembler.toModel(epigram);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/epigrams/{id}")
     ResponseEntity<EntityModel<Epigram>> replaceEpigram(@RequestBody Epigram newEpigram, @PathVariable Integer id) {
         Epigram epigram = repository.findById(id)
@@ -77,6 +81,7 @@ public class EpigramController {
                 .body(entityModel);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/epigrams/{id}")
     ResponseEntity<?> deleteEpigram(@PathVariable Integer id) {
         repository.deleteById(id);
