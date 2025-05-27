@@ -11,4 +11,12 @@ export class EpigramService {
   public getRandomEpigram(): Observable<Epigram> {
     return this.client.get<Epigram>("http://localhost:8080/epigrams/random")
   }
+
+  public getEpigram(id: number): Observable<Epigram> {
+    return this.client.get<Epigram>(`http://localhost:8080/epigrams/${id}`)
+  }
+
+  public getAllEpigrams(): Observable<Epigram[]> {
+    return this.client.get<Epigram[]>(`http://localhost:8080/epigrams`)
+  }
 }
