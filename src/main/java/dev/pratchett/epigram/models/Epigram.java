@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
+import org.hibernate.annotations.ColumnDefault;
 //import jakarta.validation.constraints.Size;
 
 @Entity
@@ -30,4 +31,18 @@ public class Epigram {
 
     @Override
     public String toString() { return String.format("Epigram #%s: %s", id, content); }
+
+    public enum Status {
+        PENDING,
+        APPROVED,
+        DELETED
+    }
+
+    @Column(name = "status", nullable = false)
+    @ColumnDefault("0")
+    private Status status;
+
+    public Status getStatus() { return status; }
+
+    public void setStatus(Status status) { this.status = status; }
 }

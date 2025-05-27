@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 @Transactional
 @Repository
 public interface EpigramRepository extends JpaRepository<Epigram, Integer> {
-    @Query(value = "SELECT e.id, e.content FROM epigrams e ORDER BY random() LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT e.id, e.content, e.status FROM epigrams e WHERE e.status = 1 ORDER BY random() LIMIT 1", nativeQuery = true)
     public Epigram getRandomEpigram();
 }

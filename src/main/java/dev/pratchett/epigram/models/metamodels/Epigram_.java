@@ -9,4 +9,6 @@ public class Epigram_ {
     public static volatile SingularAttribute<Epigram, Integer> id;
 
     public static volatile SingularAttribute<Epigram, String> content;
+
+    public static volatile SingularAttribute<Epigram, Epigram.Status> status;
 }
