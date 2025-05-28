@@ -18,7 +18,7 @@ export class BoardComponent {
 
   @Input() width!: number;
   @Input() height!: number;
-  @Input({transform: (value: string | undefined): string => value || ""}) text!: string;
+  @Input({transform: (value: string | undefined): string => (value || "").toUpperCase()}) text!: string;
   page: number = 0;
   pageSize: number = 0;
   characterArray: string[][] = new Array(0);
@@ -45,7 +45,7 @@ export class BoardComponent {
 
   ngOnChanges(changes:  SimpleChanges): void {
     if(changes['width'] || changes['height']) {
-      this.createArray();;
+      this.createArray();
     }
     if (changes['text']) {
       this.updateText();
@@ -76,10 +76,9 @@ export class BoardComponent {
   nextPage(): void {
     this.page++;
     if (this.page*this.pageSize > this.text.length) {
-      this.loggerService.log(`Page ${this.page} would start at ${this.page*this.pageSize} when string is length ${this.text.length}`);
       this.page = 0;
     }
-    this.loggerService.log(`Copying in page ${this.page} of text: ${this.text}`);
+    //this.loggerService.log(`Copying in page ${this.page} of text: ${this.text}`);
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
         const character = this.pageSize*this.page + i*this.width + j;

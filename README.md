@@ -34,12 +34,14 @@ A Java-based epigram application by Alexis Pratchett. Just a fun little coding e
 - [ ] Epigram service
 - [ ] Set service up to consume HATEOAS
 - [ ] Remove hard-coded URLs
-- [ ] Sign component
-- [ ] Letter component
-- [ ] Pull random epigram every X minutes
+- [X] Sign component
+- [X] Letter component
+- [X] Pull random epigram every X minutes
 - [ ] Pause/play for random functionality
 - [ ] Shake device to generate new epigram (on mobile)
-- [ ] Semi-mystical layout
+- [X] Letter animations
+- [X] Alphabet cycle
+- [ ] Fix issue with complete text swap breaking (some) animations
 - [ ] Epigram display page
 - [ ] Login page
 - [ ] Create user page
@@ -48,3 +50,6 @@ A Java-based epigram application by Alexis Pratchett. Just a fun little coding e
 - [ ] Approve epigram page (admin)
 ### Unit tests
 - [ ] Add [unit tests](https://spring.io/guides/gs/spring-boot#:~:text=from%20Spring%20Boot!-,Add%20Unit%20Tests,-You%20will%20want)
+
+## Attributions
+Plaster texture from [Public Domain Textures](https://publicdomaintextures.com/).

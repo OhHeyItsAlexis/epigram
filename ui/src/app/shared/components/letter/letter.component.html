@@ -4,10 +4,16 @@
     <div class="letter">{{oldCharacter}}</div>
   </div>
   -->
-  <div class="animate__animated animate__slow" [hidden]="!isFlipping" [class.animate__flipInX]="isFlipping">
-    <div class="letter">{{newCharacter}}</div>
-  </div>
-  <div>
-    <div class="letter">{{oldCharacter}}</div>
+  <div class="letter">
+    <div class="top_letter">
+      <span>{{topCharacter}}</span>
+    </div>
+    <div class="bottom_letter">
+      <span>{{bottomCharacter}}</span>
+    </div>
+    <div class="split"></div>
+    <div [class.top_letter]="flapTop" [class.bottom_letter]="!flapTop" #flap [class.secret]="!showFlapCharacter" [class.flipping_start]="topFlipping" [class.flipping_end]="bottomFlipping">
+      <span>{{flapCharacter}}</span>
+    </div>
   </div>
 </div>

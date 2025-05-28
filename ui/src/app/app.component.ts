@@ -1,20 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {EpigramService} from './shared/services/epigram.service';
-import {Epigram} from './shared/models/epigram';
 import {BoardComponent} from './shared/components/board/board.component';
+import {EpigramComponent} from './shared/components/epigram/epigram.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, BoardComponent],
+  imports: [RouterOutlet, EpigramComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  constructor(private epigramService: EpigramService) {
-    this.epigramService.getRandomEpigram().subscribe((e: Epigram) => this.epigram = e);
-  }
-
   title: string = 'ui';
-  epigram: Epigram | undefined;
 }
