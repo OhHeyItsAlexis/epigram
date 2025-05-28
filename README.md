@@ -37,12 +37,13 @@ A Java-based epigram application by Alexis Pratchett. Just a fun little coding e
 - [X] Sign component
 - [X] Letter component
 - [X] Pull random epigram every X minutes
-- [ ] Pause/play for random functionality
+- [X] Pause/play for random functionality
+- [ ] FIX: styling of buttons and head on epigram
 - [ ] Shake device to generate new epigram (on mobile)
 - [X] Letter animations
 - [X] Alphabet cycle
-- [ ] Fix issue with complete text swap breaking (some) animations
-- [ ] Epigram display page
+- [ ] FIX: issue with complete text swap breaking (some) animations
+- [X] Epigram display page
 - [ ] Login page
 - [ ] Create user page
 - [ ] Approve user page (admin)

@@ -1,0 +1,7 @@
+<h1>Epigram #{{ epigram?.id }}</h1>
+<a role="button" *ngIf="paused" (click)="play()">&#x23F5;</a>
+<a role="button" *ngIf="!paused" (click)="pause()">&#x23F8;</a>
+<a role="button" (click)="getNewEpigram()">&#x23ED;</a>
+<div class="board">
+  <app-board [width]=20 [height]=4 [text]=epigram?.content></app-board>
+</div>
