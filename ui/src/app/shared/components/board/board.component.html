@@ -1,0 +1,7 @@
+<table class="board">
+    <tr *ngFor="let row of characterArray; index as rowIndex">
+        <td *ngFor="let column of row; index as colIndex">
+          <app-letter [character]="characterArray[rowIndex][colIndex]"></app-letter>
+        </td>
+    </tr>
+</table>

@@ -9,14 +9,14 @@ export class EpigramService {
     private client: HttpClient) { }
 
   public getRandomEpigram(): Observable<Epigram> {
-    return this.client.get<Epigram>("http://localhost:8080/epigrams/random")
+    return this.client.get<Epigram>("http://localhost:8080/epigrams/random");
   }
 
   public getEpigram(id: number): Observable<Epigram> {
-    return this.client.get<Epigram>(`http://localhost:8080/epigrams/${id}`)
+    return this.client.get<Epigram>(`http://localhost:8080/epigrams/${id}`);
   }
 
   public getAllEpigrams(): Observable<Epigram[]> {
-    return this.client.get<Epigram[]>(`http://localhost:8080/epigrams`)
+    return this.client.get<Epigram[]>(`http://localhost:8080/epigrams`);
   }
 }

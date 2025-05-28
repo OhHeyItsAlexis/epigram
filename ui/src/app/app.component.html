@@ -1,7 +1,7 @@
 <main class="main">
   <div class="content">
     <h1>Epigram #{{ epigram?.id }}</h1>
-    <p>{{ epigram?.content }}</p>
+    <app-board [width]=20 [height]=4 [text]=epigram?.content></app-board>
   </div>
 </main>
 

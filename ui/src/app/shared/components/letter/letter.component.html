@@ -1,0 +1,13 @@
+<div class="letter_back">
+  <!--
+  <div [hidden]="isAnimationComplete">
+    <div class="letter">{{oldCharacter}}</div>
+  </div>
+  -->
+  <div class="animate__animated animate__slow" [hidden]="!isFlipping" [class.animate__flipInX]="isFlipping">
+    <div class="letter">{{newCharacter}}</div>
+  </div>
+  <div>
+    <div class="letter">{{oldCharacter}}</div>
+  </div>
+</div>
