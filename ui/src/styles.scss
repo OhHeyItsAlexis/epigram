@@ -1,6 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+/*
 body {
   background-image: url("/plaster.jpg");
   background-size: 200px;
   background-repeat: repeat;
 }
+ */
+
+@font-face {
+  font-family: "Fantasque";
+  src: local("Fantasque Sans Mono");
+  src: url("/fonts/TypoPRO-FantasqueSansMono-Regular.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  font-family: "Fantasque", "Helvetica", sans-serif;
+}
+
+
