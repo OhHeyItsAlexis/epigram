@@ -1,33 +1,38 @@
 # Epigram
-A Java-based epigram application by Alexis Pratchett. Just a fun little coding exercise.
+A Java-based epigram application by Alexis Pratchett. Just a fun little coding exercise.  
+  
+When thinking about pithy sayings I couldn't stop imagining the [Vestaboard](https://www.vestaboard.com), which is one of those beautiful artifacts that I would absolutely own if I had more money than I knew what to do with. I decided to make my own implementation of a split-flap display using CSS animations as a fun little exercise, even though I much prefer backend engineering.
+
+![An animated gif of the board loading messages](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+## Tech Stack
+### Backend
+I opted to use Spring Boot for the Java backend. Most of my familiarity is with ASP.Net MVC, with very little standalone Java experience outside of private frameworks used in certain large companies that I won't name in a public repository. I opted for Spring Boot as Spring still appears to be popular and the closest equivalent to ASP.Net, while Spring Boot should cut out some of the boilerplate.  
+  
+Setup took longer than expected. There were lots of conflicts between newer Java version and different forms of tooling. For example I started on Gradle with v24, which immediately introduced the issue of Gradle just not being compatible at all. I switched over to Maven, which mostly was, but ended up  downgrading to v17 while trying to uncover some dependency issues.  
+### Database
+For our actual DB we're using Postgres, for no particular reason outside of the fact that I run it on my private server in the event I wanted to keep a copy running live for demoing.  
+  
+I opted for JPA as our ORM as it can mostly handle DB schema on its own. If this weren't a simple app I would not want to rely on it. It can get super cumbersome once you start doing things that are "out of the box," which this already start doing by implementing random epigram querying. I much prefer defining a database schema manually, but that requires some additional work (like schema versioning) that didn't seem worth doing for a fun little project like this.  
+### Frontend
+I opted for Angular as I have the most experience with it and I had a very cute idea for how we could display epigrams as a split-flap display. It also makes it feel very responsive, which is a good fit with something so animated.  
+  
+Running Angular with Docker is a bit sluggish, as it has to download all of the NPM packages every time you do a brand new build. Fortunately it's also set up with live-reloading so when you're doing UI work you can just run it once and automatically see your changes.
+### Dev Experience
+I've had some rough dev environments before, so I tried to prioritize the dev experience, and I'm pretty happy with this set up. The docker-compose spins up a backend and frontend server, as well as DB with local persistence. It makes it pretty easy to get started with development, especially if you're using IntelliJ as I also included .run.xml files. Additionally our backend is configured to set up the database with some seed data if you're starting fresh.  
 ## Roadmap
 ### Backend
-- [X] Find appropriate web framework
-  - Most of my familiarity is with ASP.Net MVC, with very little standalone Java experience outside of private frameworks used in certain large companies. I opted for Spring Boot as Spring still appears to be popular and the closest equivalent to ASP.Net, while Spring Boot should cut out some of the boilerplate. 
-- [X] Set up web framework 
-  - This took longer than expected. There were lots of conflicts between newer Java version and different forms of tooling. For example I started on Gradle with v24, which immediately introduced the issue of Gradle just not being compatible at all. I switched over to Maven, which mostly was, but ended up  downgrading to v17 while trying to uncover some dependency issues.
 - [ ] Set up environmental variables (DB access)
   - Not particularly high priority as this is just a demo and uses its own Postgres instance that should be taken down when the demo is done.
-- [X] Set up Docker container to run project in personal environment
-  - Pretty happy with this set up. The compose spins up a DB wired up to sample app, with local persistence. Makes it pretty easy to get started with development, at least if you're using IntelliJ.
 ### Database
-- [X] Create database schema
-  - Since I opted for JPA it's mostly handling DB schema on its own. If this weren't a simple app I would not want to rely on it, as it could get super cumbersome once you get out of the box.
 - [ ] Accounts (with roles)
-- [X] Epigrams
-  - Including seeding of database when empty.
 - [ ] Epigram status (approved, unapproved)
-  - Set up with (rel approval or deletion links)[https://spring.io/guides/tutorials/rest]
+  - Set up with [rel approval or deletion links](https://spring.io/guides/tutorials/rest)
 ### API
-- [X] GetRandomEpigram
-  - The exact kind of scenario where JPA starts getting annoying, but it works
 - [ ] ApproveEpigram
 - [ ] CreateUser
 - [ ] ApproveUser
 - [ ] Fix up requiring CORS annotations in every endpoint
 ### UI
-- [X] Set up Angular
-  - Also set up with Docker. This is a bit slower that I'd like, as there doesn't seem to be a container with Angular already installed, but it does have live reloading so you do only need to run it once and can then work on the fly. 
 - [ ] Set service up to consume HATEOAS
 - [ ] Shake device to generate new epigram (on mobile)
 - [ ] FIX: issue with complete text swap breaking (some) animations
