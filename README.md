@@ -17,33 +17,20 @@ A Java-based epigram application by Alexis Pratchett. Just a fun little coding e
 - [X] Epigrams
   - Including seeding of database when empty.
 - [ ] Epigram status (approved, unapproved)
-  - Set up with [rel approval or deletion links] (https://spring.io/guides/tutorials/rest)
+  - Set up with (rel approval or deletion links)[https://spring.io/guides/tutorials/rest]
 ### API
 - [X] GetRandomEpigram
   - The exact kind of scenario where JPA starts getting annoying, but it works
-- [X] ListEpigrams
-- [X] SubmitEpigram
 - [ ] ApproveEpigram
-- [X] DeleteEpigram
 - [ ] CreateUser
 - [ ] ApproveUser
 - [ ] Fix up requiring CORS annotations in every endpoint
 ### UI
 - [X] Set up Angular
   - Also set up with Docker. This is a bit slower that I'd like, as there doesn't seem to be a container with Angular already installed, but it does have live reloading so you do only need to run it once and can then work on the fly. 
-- [ ] Epigram service
 - [ ] Set service up to consume HATEOAS
-- [ ] Remove hard-coded URLs
-- [X] Sign component
-- [X] Letter component
-- [X] Pull random epigram every X minutes
-- [X] Pause/play for random functionality
-- [ ] FIX: styling of buttons and head on epigram
 - [ ] Shake device to generate new epigram (on mobile)
-- [X] Letter animations
-- [X] Alphabet cycle
 - [ ] FIX: issue with complete text swap breaking (some) animations
-- [X] Epigram display page
 - [ ] Login page
 - [ ] Create user page
 - [ ] Approve user page (admin)
@@ -53,4 +40,5 @@ A Java-based epigram application by Alexis Pratchett. Just a fun little coding e
 - [ ] Add [unit tests](https://spring.io/guides/gs/spring-boot#:~:text=from%20Spring%20Boot!-,Add%20Unit%20Tests,-You%20will%20want)
 
 ## Attributions
-Plaster texture from [Public Domain Textures](https://publicdomaintextures.com/).
+Plaster texture from [Public Domain Textures](https://publicdomaintextures.com/)
+[Fantasque Sans Mono](https://github.com/belluzj/fantasque-sans) is copyright (c) 2013-2017, Jany Belluz (jany.belluz@hotmail.fr)
