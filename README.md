@@ -3,7 +3,7 @@ A Java-based epigram application by Alexis Pratchett. Just a fun little coding e
   
 When thinking about pithy sayings I couldn't stop imagining the [Vestaboard](https://www.vestaboard.com), which is one of those beautiful artifacts that I would absolutely own if I had more money than I knew what to do with. I decided to make my own implementation of a split-flap display using CSS animations as a fun little exercise, even though I much prefer backend engineering.
 
-![An animated gif of the board loading messages](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+![An animated gif of the board loading messages](https://raw.githubusercontent.com/OhHeyItsAlexis/epigram/refs/heads/main/sample.gif)
 ## Tech Stack
 ### Backend
 I opted to use Spring Boot for the Java backend. Most of my familiarity is with ASP.Net MVC, with very little standalone Java experience outside of private frameworks used in certain large companies that I won't name in a public repository. I opted for Spring Boot as Spring still appears to be popular and the closest equivalent to ASP.Net, while Spring Boot should cut out some of the boilerplate.  
