@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { CommonModule} from '@angular/common';
 import {BoardComponent} from "../../shared/components/board/board.component";
 import {EpigramService} from '../../shared/services/epigram.service';
 import {Epigram} from '../../shared/models/epigram';
 import {Subscription, timer} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-epigram',
@@ -20,8 +21,10 @@ export class EpigramComponent {
   paused = false;
   epigram: Epigram | undefined;
 
-  constructor(private epigramService: EpigramService) {
-    this.getNewEpigram()
+  @Input() id: number | undefined
+
+
+  constructor(private epigramService: EpigramService, private route: ActivatedRoute) {
     const source = timer(0, 1000);
     this.timerSubscription = source.subscribe(() => {
       if (this.paused) {
@@ -34,6 +37,15 @@ export class EpigramComponent {
         this.getNewEpigram()
       }
     });
+  }
+
+  ngOnInit(): void {
+    if (this.id) {
+      this.paused = true;
+      this.epigramService.getEpigram(this.id).subscribe((e: Epigram) => this.epigram = e);
+    } else {
+      this.getNewEpigram()
+    }
   }
 
   ngOnDestroy() {

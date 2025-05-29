@@ -8,6 +8,10 @@ export const routes: Routes = [
     component: EpigramComponent,
   },
   {
+    path: 'epigrams/:id',
+    component: EpigramComponent,
+  },
+  {
     path: 'new',
     component: NewComponent,
   },

@@ -48,6 +48,8 @@ public class EpigramController {
     @PostMapping("/epigrams")
     ResponseEntity<EntityModel<Epigram>> newEpigram(@RequestBody Epigram newEpigram) {
         Epigram epigram = repository.save(newEpigram);
+        // TODO: Have this save as pending once we have a page for approvals
+        epigram.setStatus(Epigram.Status.APPROVED);
         EntityModel<Epigram> entityModel = assembler.toModel(epigram);
 
         return ResponseEntity
