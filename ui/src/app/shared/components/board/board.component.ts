@@ -58,6 +58,7 @@ export class BoardComponent {
   }
 
   createArray(): void {
+    console.log("Making a new array")
     this.pageSize = this.height * this.width;
     this.characterArray = new Array(this.height);
     for (let i = 0; i < this.height; i++) {
@@ -90,5 +91,14 @@ export class BoardComponent {
       }
     }
 
+  }
+
+
+  trackByRow(index: number, item: string[]){
+    return `row${index.toString()}`;
+  }
+
+  trackByCol(row: number){
+    return (index: number, item: string) => `row${row.toString()}col${index.toString()}`;
   }
 }

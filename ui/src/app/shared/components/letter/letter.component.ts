@@ -26,6 +26,7 @@ export class LetterComponent {
   constructor(private loggerService: LoggerService) {}
 
   ngAfterViewInit() {
+    this.loggerService.log('ngAfterViewInit');
     this.flap.nativeElement.addEventListener('animationend', (ev: AnimationEvent) => {
       this.animationFinished();
     });
@@ -117,7 +118,6 @@ export class LetterComponent {
   }
 
   runLetterStack() {
-    //console.log(this.letterStack);
     this.destroyTimer();
     if (this.letterStack.length == 0) { return; }
     this.topCharacter = this.letterStack.shift() || " ";
