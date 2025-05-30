@@ -1,5 +1,9 @@
-<form [formGroup]="epigramForm" (ngSubmit)="onSubmit()">
-  <label for="name">What wisdom would you like to share?</label>
-  <input id="name" type="text" formControlName="content">
-  <button type="submit" [disabled]="!epigramForm.valid">Share your wisdom</button>
-</form>
+<div class="content">
+  <form [formGroup]="epigramForm" (ngSubmit)="onSubmit()">
+    <label for="name">What wisdom would you like to share?</label>
+    <textarea id="textarea" type="text" formControlName="content"></textarea>
+    <button type="submit" [disabled]="!epigramForm.valid">Share your wisdom</button>
+  </form>
+
+</div>
+

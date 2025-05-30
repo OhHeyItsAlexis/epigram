@@ -5,6 +5,11 @@ import {NewComponent} from './pages/new/new.component';
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: '/epigrams',
+    pathMatch: 'full'
+  },
+  {
+    path: 'epigrams',
     component: EpigramComponent,
   },
   {
