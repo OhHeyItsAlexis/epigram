@@ -12,6 +12,14 @@ import org.hibernate.annotations.ColumnDefault;
 @Entity
 @Table(name = "epigrams")
 public class Epigram {
+    public Epigram() {}
+
+    public Epigram(Integer id, String content, Status status) {
+        this.id = id;
+        this.content = content;
+        this.status = status;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -19,6 +27,9 @@ public class Epigram {
 
     public Integer getId() { return id; }
 
+    public void setId(Integer id) { this.id = id; }
+
+    //TODO: Fix size annotation, as Hibernate did set a varchar length, so we're not unlimited
     //@Size(min = 3, max = 75)
     @Column(name = "content", nullable = false)
     private String content;

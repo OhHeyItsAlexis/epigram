@@ -21,6 +21,6 @@ export class NewComponent {
   onSubmit(): void {
     let epigram = new Epigram();
     Object.assign(epigram, this.epigramForm.value);
-    this.epigramService.createEpigram(epigram).subscribe((e: Epigram) => this.router.navigate(['epigram', epigram.id.toString()]));
+    this.epigramService.createEpigram(epigram).subscribe((e: Epigram) => this.router.navigate(['epigrams', e.id.toString()]));
   }
 }

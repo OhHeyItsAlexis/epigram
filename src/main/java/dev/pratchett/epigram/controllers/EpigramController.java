@@ -4,6 +4,8 @@ import dev.pratchett.epigram.exceptions.EpigramNotFoundException;
 import dev.pratchett.epigram.models.Epigram;
 import dev.pratchett.epigram.models.assemblers.EpigramModelAssembler;
 import dev.pratchett.epigram.repositories.EpigramRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -18,6 +20,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 public class EpigramController {
+    private static final Logger log = LoggerFactory.getLogger(EpigramController.class);
     private final EpigramRepository repository;
     private final EpigramModelAssembler assembler;
 
@@ -47,10 +50,12 @@ public class EpigramController {
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/epigrams")
     ResponseEntity<EntityModel<Epigram>> newEpigram(@RequestBody Epigram newEpigram) {
-        Epigram epigram = repository.save(newEpigram);
+        newEpigram.setId(null);
         // TODO: Have this save as pending once we have a page for approvals
-        epigram.setStatus(Epigram.Status.APPROVED);
+        newEpigram.setStatus(Epigram.Status.APPROVED);
+        Epigram epigram = repository.save(newEpigram);
         EntityModel<Epigram> entityModel = assembler.toModel(epigram);
+        log.info("New Epigram Created: {}", entityModel);
 
         return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()) //

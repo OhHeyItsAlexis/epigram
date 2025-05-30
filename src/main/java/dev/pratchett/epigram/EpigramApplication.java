@@ -58,9 +58,6 @@ public class EpigramApplication {
 			}
 
 			logger.info(String.format("Found %s epigrams!", allEpigrams.size()));
-
-			Epigram randomEpigram = repository.getRandomEpigram();
-			logger.info(String.format("Your random epigram: %s", randomEpigram.getContent()));
 		};
 	}
 
