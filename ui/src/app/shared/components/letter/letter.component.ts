@@ -134,7 +134,6 @@ export class LetterComponent {
 
     const startAscii = this.topCharacter.charCodeAt(0);
     if (startAscii > 90 || startAscii < 65) {
-      const endAscii = String.fromCharCode(65+Math.floor(Math.random()*3));
       this.generateLetterStack(this.topCharacter, String.fromCharCode(65+Math.floor(Math.random()*3)));
     } else {
       const endAscii = 65+(startAscii+Math.floor(Math.random()*3)-65)%25;
