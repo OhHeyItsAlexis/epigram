@@ -8,7 +8,7 @@
 </ng-container>
 <ng-container *ngIf="!isDeleting && !isDeleted">
   <a (click)="clickDelete($event)">🗑️</a>
-  <span class="epi-display" *ngIf="!isEditing">{{epigram.content}}</span>
+  <span class="epi-display" *ngIf="!isEditing" (click)="onClick($event)">{{epigram.content}}</span>
   <textarea  #content id="epi-input-" *ngIf="isEditing" name="content" (keydown)="onKeyDown($event)" (blur)="onBlur($event)">{{epigram.content}}</textarea>
 </ng-container>
 

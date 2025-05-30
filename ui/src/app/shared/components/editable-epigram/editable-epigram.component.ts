@@ -1,4 +1,4 @@
-import {Component, Input, HostListener, ViewChild, ElementRef} from '@angular/core';
+import {Component, Input, ViewChild, ElementRef} from '@angular/core';
 import {Epigram} from '../../models/epigram';
 import {NgIf} from '@angular/common';
 import {EpigramService} from '../../services/epigram.service';
@@ -22,7 +22,6 @@ export class EditableEpigramComponent {
 
   constructor(private epigramService: EpigramService, private logger: LoggerService) {}
 
-  @HostListener('click', ['$event'])
   onClick(event: MouseEvent): void {
     this.isEditing = true;
   }
@@ -46,6 +45,7 @@ export class EditableEpigramComponent {
 
   clickDelete(e: MouseEvent): void {
     this.isDeleting = true;
+    this.isEditing = false;
   }
 
   confirmDelete(e: MouseEvent): void {
@@ -53,6 +53,6 @@ export class EditableEpigramComponent {
   }
 
   cancelDelete(e: MouseEvent): void {
-    this.isEditing = false;
+    this.isDeleting = false;
   }
 }
