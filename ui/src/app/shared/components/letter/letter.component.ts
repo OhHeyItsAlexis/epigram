@@ -131,14 +131,15 @@ export class LetterComponent {
     if (this.bottomFlipping || this.topFlipping) {
       return;
     }
-    let endAscii = 65;
+
     const startAscii = this.topCharacter.charCodeAt(0);
-    if (startAscii > 90 && startAscii < 65) {
-      endAscii += Math.floor(Math.random()*3);
+    if (startAscii > 90 || startAscii < 65) {
+      const endAscii = String.fromCharCode(65+Math.floor(Math.random()*3));
+      this.generateLetterStack(this.topCharacter, String.fromCharCode(65+Math.floor(Math.random()*3)));
     } else {
-      endAscii = 65+(startAscii+Math.floor(Math.random()*3)-65)%25;
+      const endAscii = 65+(startAscii+Math.floor(Math.random()*3)-65)%25;
+      this.generateLetterStack(this.topCharacter, String.fromCharCode(endAscii));
     }
-    this.generateLetterStack(this.topCharacter, String.fromCharCode(endAscii));
     this.runLetterStack();
   }
 }
