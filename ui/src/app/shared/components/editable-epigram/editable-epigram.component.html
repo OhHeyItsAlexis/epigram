@@ -1,0 +1,14 @@
+<ng-container *ngIf="isDeleted">
+  <div class="epi-warning">This wisdom has been forgotten, now but dust in the wind...</div>
+</ng-container>
+<ng-container *ngIf="isDeleting && !isDeleted">
+  <a (click)="cancelDelete($event)">❌</a>
+  <a (click)="confirmDelete($event)">✔️</a>
+  <span class="epi-warning">Do you really want to forget this wisdom?</span>
+</ng-container>
+<ng-container *ngIf="!isDeleting && !isDeleted">
+  <a (click)="clickDelete($event)">🗑️</a>
+  <span class="epi-display" *ngIf="!isEditing">{{epigram.content}}</span>
+  <textarea  #content id="epi-input-" *ngIf="isEditing" name="content" (keydown)="onKeyDown($event)" (blur)="onBlur($event)">{{epigram.content}}</textarea>
+</ng-container>
+

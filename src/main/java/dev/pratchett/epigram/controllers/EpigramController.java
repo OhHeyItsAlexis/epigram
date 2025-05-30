@@ -6,7 +6,6 @@ import dev.pratchett.epigram.models.assemblers.EpigramModelAssembler;
 import dev.pratchett.epigram.repositories.EpigramRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.http.ResponseEntity;
@@ -31,12 +30,10 @@ public class EpigramController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/epigrams")
-    public CollectionModel<EntityModel<Epigram>> all() {
-        List<EntityModel<Epigram>> epigrams =  repository.findAll().stream()
+    public List<EntityModel<Epigram>> all() {
+        return repository.findAll().stream()
                 .map(assembler::toModel)
                 .collect(Collectors.toList());
-
-        return CollectionModel.of(epigrams, linkTo(methodOn(EpigramController.class).all()).withSelfRel());
     }
 
     @CrossOrigin(origins = "http://localhost:4200")

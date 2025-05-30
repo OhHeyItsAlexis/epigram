@@ -24,4 +24,8 @@ export class EpigramService {
   public createEpigram(epigram: Epigram): Observable<Epigram> {
     return this.client.post<Epigram>(`http://localhost:8080/epigrams`, epigram);
   }
+
+  public updateEpigram(epigram: Epigram): Observable<Epigram> {
+    return this.client.put<Epigram>(`http://localhost:8080/epigrams/${epigram.id}`, epigram);
+  }
 }

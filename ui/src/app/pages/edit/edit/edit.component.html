@@ -1,0 +1,7 @@
+<table>
+  <tr *ngFor="let epigram of epigrams; index as i; trackBy: epigramById">
+    <td>
+    <app-editable-epigram [epigram]="epigram"></app-editable-epigram>
+    </td>
+  </tr>
+</table>

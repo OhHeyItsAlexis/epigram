@@ -125,4 +125,20 @@ export class LetterComponent {
     this.bottomFlipping = false;
     this.topFlipping = true;
   }
+
+  tapTheFlap(e: MouseEvent): void {
+    //Don't bother doing anything if we're in the middle of a flip
+    if (this.bottomFlipping || this.topFlipping) {
+      return;
+    }
+    let endAscii = 65;
+    const startAscii = this.topCharacter.charCodeAt(0);
+    if (startAscii > 90 && startAscii < 65) {
+      endAscii += Math.floor(Math.random()*3);
+    } else {
+      endAscii = 65+(startAscii+Math.floor(Math.random()*3)-65)%25;
+    }
+    this.generateLetterStack(this.topCharacter, String.fromCharCode(endAscii));
+    this.runLetterStack();
+  }
 }

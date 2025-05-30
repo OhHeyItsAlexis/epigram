@@ -1,0 +1,23 @@
+textarea {
+  width: 95%;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+  float: right;
+}
+
+
+.epi-display {
+  margin-left: 5px;
+}
+
+.epi-warning {
+  font-weight: lighter;
+  font-style: italic;
+  margin-left: 5px;
+}
+

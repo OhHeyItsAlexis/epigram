@@ -16,7 +16,9 @@ I opted for JPA as our ORM as it can mostly handle DB schema on its own. If this
 ### Frontend
 I opted for Angular as I have the most experience with it and I had a very cute idea for how we could display epigrams as a split-flap display. It also makes it feel very responsive, which is a good fit with something so animated.  
   
-Running Angular with Docker is a bit sluggish, as it has to download all of the NPM packages every time you do a brand new build. Fortunately it's also set up with live-reloading so when you're doing UI work you can just run it once and automatically see your changes.
+Running Angular with Docker is a bit sluggish, as it has to download all of the NPM packages every time you do a brand new build. Fortunately it's also set up with live-reloading so when you're doing UI work you can just run it once and automatically see your changes.  
+  
+Normally, I'd say 9 times out of 10, I would just chuck Bootstrap on a project and call it good enough to be usable day to day. Granted most of my work has been internal tooling so we weren't trying to stand out amongst competition, I just wanted my coworkers to not have their eyes suffer when looking at forms. It's usually an extremely quick set up, but for some reason it was just not playing nice with my application. Once I did finally get it up and running I realized my crucial mistake... it absolutely ruined the styling of my board. Since there's not that much UI I decided to just manually handle styling instead.
 ### Dev Experience
 I've had some rough dev environments before, so I tried to prioritize the dev experience, and I'm pretty happy with this set up. The docker-compose spins up a backend and frontend server, as well as DB with local persistence. It makes it pretty easy to get started with development, especially if you're using IntelliJ as I also included .run.xml files. Additionally our backend is configured to set up the database with some seed data if you're starting fresh.  
 ## Roadmap
@@ -39,7 +41,6 @@ I've had some rough dev environments before, so I tried to prioritize the dev ex
 - [ ] Login page
 - [ ] Create user page
 - [ ] Approve user page (admin)
-- [ ] List epigram page
 - [ ] Approve epigram page (admin)
 ### Unit tests
 - [ ] Add [unit tests](https://spring.io/guides/gs/spring-boot#:~:text=from%20Spring%20Boot!-,Add%20Unit%20Tests,-You%20will%20want)
