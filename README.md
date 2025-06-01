@@ -45,4 +45,5 @@ I've had some rough dev environments before, so I tried to prioritize the dev ex
 
 ## Attributions
 Pink wall texture from [Unplash](https://unsplash.com/photos/pink-concrete-wall-ZlHvmQ0igW4) by [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski)
+White wall texture from [Unplash](https://unsplash.com/photos/a-black-and-white-photo-of-a-white-wall-KUGjpg-iXIQ) by [Ernest Karchmit](https://unsplash.com/@ekarchmit)
 [Fantasque Sans Mono](https://github.com/belluzj/fantasque-sans) is copyright (c) 2013-2017, Jany Belluz (jany.belluz@hotmail.fr)
