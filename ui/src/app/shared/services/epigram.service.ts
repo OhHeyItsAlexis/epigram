@@ -28,4 +28,12 @@ export class EpigramService {
   public updateEpigram(epigram: Epigram): Observable<Epigram> {
     return this.client.put<Epigram>(`http://localhost:8080/epigrams/${epigram.id}`, epigram);
   }
+
+  public deleteEpigram(epigram: Epigram): Observable<Object> {
+    return this.deleteEpigramById(epigram.id);
+  }
+
+  public deleteEpigramById(id: number): Observable<Object> {
+    return this.client.delete(`http://localhost:8080/epigrams/${id}`)
+  }
 }

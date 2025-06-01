@@ -1,0 +1,27 @@
+.board {
+  padding-top: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  opacity: 50%;
+
+  a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.cord {
+  display: flex;
+  justify-content: center;
+  padding-left: 700px;
+}
+
+:host {
+  display: block;
+  background-image: url("/pawel-czerwinski-ZlHvmQ0igW4-unsplash.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+}

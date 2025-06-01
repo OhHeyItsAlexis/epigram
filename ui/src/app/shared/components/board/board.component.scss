@@ -3,6 +3,10 @@
   padding: 2px;
 }
 
+.shadow {
+  filter: drop-shadow(2px 5px 2px #000000);
+}
+
 :host {
   display: flex;
   justify-content: center;

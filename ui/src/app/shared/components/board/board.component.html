@@ -1,4 +1,4 @@
-<table class="board">
+<table class="board shadow">
     <tr *ngFor="let row of characterArray; index as rowIndex; trackBy: trackByRow">
         <td *ngFor="let column of row; index as colIndex; trackBy:trackByCol(rowIndex)">
           <app-letter [character]="characterArray[rowIndex][colIndex]"></app-letter>

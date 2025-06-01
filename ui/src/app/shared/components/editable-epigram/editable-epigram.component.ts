@@ -49,7 +49,7 @@ export class EditableEpigramComponent {
   }
 
   confirmDelete(e: MouseEvent): void {
-    this.isDeleted = true;
+    this.epigramService.deleteEpigram(this.epigram).subscribe(e => this.isDeleted = true);
   }
 
   cancelDelete(e: MouseEvent): void {

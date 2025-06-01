@@ -2,6 +2,10 @@ import {Component, Input, SimpleChanges, ViewChild, ElementRef} from '@angular/c
 import {LoggerService} from '../../services/logger.service';
 import {Subscription, timer} from 'rxjs';
 
+/**
+ * A component that displays individual letters as a a split-flap display and
+ * animated changes automatically
+ */
 @Component({
   selector: 'app-letter',
   imports: [],
@@ -48,6 +52,9 @@ export class LetterComponent {
     }
   }
 
+  /**
+   * Triggers the next stage after an animation is complete
+   */
   animationFinished() {
     if (this.topFlipping) {
       this.flapCharacter = this.topCharacter;
@@ -63,12 +70,18 @@ export class LetterComponent {
     }
   }
 
+  /**
+   * Destroys the existing timer subscription
+   */
   destroyTimer(): void {
     if (this.timerSubscription) {
       this.timerSubscription.unsubscribe();
     }
   }
 
+  /**
+   * Starts a timer that kicks off the animation after this.delay centiseconds
+   */
   startTimer(): void {
     this.seconds = 0;
     const source = timer(0, 10);
@@ -81,7 +94,12 @@ export class LetterComponent {
     });
   }
 
-  // Fills our letter stack, skipping start value but including end value
+  /**
+   * Fills the letter stack with all of the values to get from startValue (exclusive)
+   * to endValue (inclusive.)
+   * @param startValue The letter the stack should start populating from (not included in the stack.)
+   * @param endValue The letter the stack should end on (included in the stack.)
+   */
   generateLetterStack(startValue: string, endValue: string): void {
     // Same character, don't do anything
     if (startValue == endValue) {
@@ -117,8 +135,13 @@ export class LetterComponent {
     }
   }
 
+  /**
+   * Starts animating the display through the existing stack
+   */
   runLetterStack() {
+    //Destroy the timer so that the only thing trigger animations is the end of the previous one
     this.destroyTimer();
+
     if (this.letterStack.length == 0) { return; }
     this.topCharacter = this.letterStack.shift() || " ";
     this.showFlapCharacter = true;
@@ -126,6 +149,10 @@ export class LetterComponent {
     this.topFlipping = true;
   }
 
+  /**
+   * An easter egg! Makes the flap "accidentally" drop a few more if you tap it
+   * @param e The event details for the mouse interaction (unused)
+   */
   tapTheFlap(e: MouseEvent): void {
     //Don't bother doing anything if we're in the middle of a flip
     if (this.bottomFlipping || this.topFlipping) {

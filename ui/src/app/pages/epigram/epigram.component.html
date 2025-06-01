@@ -1,7 +1,12 @@
 <!-- TODO: Make these buttons pretty -->
-<a role="button" *ngIf="paused" (click)="play()">&#x23F5;</a>
-<a role="button" *ngIf="!paused" (click)="pause()">&#x23F8;</a>
-<a role="button" (click)="getNewEpigram()">&#x23ED;</a>
 <div class="board">
+  <div class="buttons">
+    <a role="button" *ngIf="paused" (click)="play()">&#x23F5;</a>
+    <a role="button" *ngIf="!paused" (click)="pause()">&#x23F8;</a>
+    <a role="button" (click)="getNewEpigram()">&#x23ED;</a>
+  </div>
   <app-board [width]=20 [height]=4 [text]=epigram?.content></app-board>
+</div>
+<div class="cord">
+  <app-curve [height]=600 [width]=300 [strokeWidth]=10 color="black"></app-curve>
 </div>

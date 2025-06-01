@@ -5,13 +5,15 @@ import {EpigramService} from '../../shared/services/epigram.service';
 import {Epigram} from '../../shared/models/epigram';
 import {Subscription, timer} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
+import {CurveComponent} from '../../shared/components/curve/curve.component';
 
 @Component({
   selector: 'app-epigram',
-    imports: [
-        BoardComponent,
-        CommonModule
-    ],
+  imports: [
+    BoardComponent,
+    CommonModule,
+    CurveComponent
+  ],
   templateUrl: './epigram.component.html',
   styleUrl: './epigram.component.scss'
 })

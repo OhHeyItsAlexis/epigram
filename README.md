@@ -36,8 +36,6 @@ I've had some rough dev environments before, so I tried to prioritize the dev ex
 - [ ] Fix up requiring CORS annotations in every endpoint
 ### UI
 - [ ] Set service up to consume HATEOAS
-- [ ] Shake device to generate new epigram (on mobile)
-- [ ] FIX: issue with complete text swap breaking (some) animations
 - [ ] Login page
 - [ ] Create user page
 - [ ] Approve user page (admin)
@@ -46,5 +44,5 @@ I've had some rough dev environments before, so I tried to prioritize the dev ex
 - [ ] Add [unit tests](https://spring.io/guides/gs/spring-boot#:~:text=from%20Spring%20Boot!-,Add%20Unit%20Tests,-You%20will%20want)
 
 ## Attributions
-Plaster texture from [Public Domain Textures](https://publicdomaintextures.com/)
+Pink wall texture from [Unplash](https://unsplash.com/photos/pink-concrete-wall-ZlHvmQ0igW4) by [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski)
 [Fantasque Sans Mono](https://github.com/belluzj/fantasque-sans) is copyright (c) 2013-2017, Jany Belluz (jany.belluz@hotmail.fr)
